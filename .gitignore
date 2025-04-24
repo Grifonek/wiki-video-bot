@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Audio/Video files
+*.wav
+*.mp3
+*.mp4
+*.jpeg
+
+# VSCode or PyCharm
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
