@@ -5,6 +5,12 @@ from wiki_article import get_random_wikipedia_article
 from tts import generate_voice_over
 from generate_video import create_video_with_audio, validate_img
 
+import moviepy.config as mpc
+
+mpc.change_settings({
+    'IMAGEMAGICK_BINARY': r'C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe'
+})
+
 if __name__ == "__main__":
     article = get_random_wikipedia_article()
 
@@ -42,11 +48,14 @@ if __name__ == "__main__":
             else:
                 print(f"Failed to download image: {response.status_code}")
 
-            print("Audio exists:", os.path.exists("test.wav"), "Size:", os.path.getsize("test.wav"))
+            # print("Audio exists:", os.path.exists("test.wav"), "Size:", os.path.getsize("test.wav"))
+            print("Audio exists:", os.path.exists("test.mp3"), "Size:", os.path.getsize("test.mp3"))
 
             if validate_img("article_image.jpeg"):
-                create_video_with_audio("article_image.jpeg", "test.wav", article["title"])
+                create_video_with_audio("article_image.jpeg", "test.mp3", article["title"], article["summary"])
+                # create_video_with_audio("article_image.jpeg", "test.wav", article["title"])
             else:
-                create_video_with_audio("random.jpeg", "test.wav", article["title"])
+                create_video_with_audio("random.jpeg", "test.mp3", article["title"], article["summary"])
+                # create_video_with_audio("random.jpeg", "test.wav", article["title"])
         else:
             print("no images found in the article")

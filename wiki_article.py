@@ -8,7 +8,7 @@ def get_random_wikipedia_article():
     # getting full article content
     try:
         page = wikipedia.page(title)
-        summary = wikipedia.summary(title, sentences = 5)
+        summary = wikipedia.summary(title)
 
         return {
             "title": page.title,
