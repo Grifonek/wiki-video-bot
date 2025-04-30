@@ -9,6 +9,10 @@ __pycache__/
 *.mp3
 *.mp4
 *.jpeg
+*.jpg
+
+# Folders
+brainrot
 
 # VSCode or PyCharm
 .vscode/
